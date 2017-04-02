@@ -18,6 +18,7 @@
 @property(nonatomic,strong)NSMutableArray *mutarray;
 @property(nonatomic,strong)NSMutableArray *arraymovies;
 @property(nonatomic,strong)UITableView *mytableview1;
+@property(nonatomic,strong)UIButton *mybutton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectedcontrol;
 @property (weak, nonatomic) IBOutlet UIScrollView *myscollview;
 //@property(strong,nonatomic)AlAsetvideo *alvideo;
@@ -29,6 +30,8 @@
 -(NSMutableArray*)arraymovies{
     if (!_arraymovies) {
         _arraymovies=[NSMutableArray array];
+        
+        
     }
     return _arraymovies;
 }
@@ -253,6 +256,8 @@
     self.myscollview.pagingEnabled=YES;
     self.myscollview.delegate=self;
     AFURLSessionManager *url=[[AFURLSessionManager alloc]init];
+    self.mybutton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:self.mybutton];
     //self.alvideo=[[AlAsetvideo alloc]init];
     [self getmovies];
     self.mytableview1=[[UITableView alloc]initWithFrame:CGRectMake(0,5, kWidthOfScreen, kHeightOfScreen) style:UITableViewStylePlain];
